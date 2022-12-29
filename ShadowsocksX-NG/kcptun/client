@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+exec >> $HOME/Library/Logs/ss-local.log
+exec 2>&1
+
+if test -d "/opt/homebrew"; then
+  BREW=/opt/homebrew
+elif test -d "/usr/local"; then
+  BREW=/usr/local
+else
+  echo "Please install 'brew' first"
+  exit 1
+fi
+
+$BREW/opt/kcptun/bin/kcptun_client $@

@@ -1,0 +1,109 @@
+#!/bin/sh
+
+set -e
+
+exec >> $HOME/Library/Logs/ss-local.log
+exec 2>&1
+
+if test -d "/opt/homebrew"; then
+  BREW=/opt/homebrew
+elif test -d "/usr/local"; then
+  BREW=/usr/local
+else
+  echo "Please install 'brew' first"
+  exit 1
+fi
+
+ss=$BREW/bin/ss-local
+jq=$BREW/bin/jq
+xray=$BREW/bin/xray
+hysteria=$BREW/bin/hysteria
+
+if ! test -f "$ss" || \
+   ! test -f "$jq" || \
+   ! test -f "$xray" || \
+   ! test -f "$hysteria"; then
+  echo "Please execute 'brew install shadowsocks-libev jq xray hysteria'"
+  exit 1
+fi
+
+for ((i=0; i<=$#; i++)); do
+  if [ "${!i}" = "-c" ]; then
+    next_i=$((i+1))
+    config=${!next_i}
+  fi
+done
+
+local_addr=$(cat "$config" | "$jq" -r '.local_address')
+local_port=$(cat "$config" | "$jq" -r '.local_port')
+remote_addr=$(cat "$config" | "$jq" -r '.server')
+remote_port=$(cat "$config" | "$jq" -r '.server_port')
+mode=$(cat "$config" | "$jq" -r '.password')
+
+case "$mode" in
+  "xray")
+  config=xray.json
+cat <<EOF > "$config"
+{
+  "inbounds": [
+    {
+      "port": $local_port,
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": false
+      },
+      "settings": {
+        "auth": "noauth"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "$remote_addr",
+            "port": $remote_port,
+            "users": [
+              {
+                "id": "7b868c1f1242425bde3c4c569873a685",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "$remote_addr"
+        }
+      }
+    }
+  ]
+}
+EOF
+  "$xray" run -config "$config"
+  ;;
+  "hysteria")
+  config=config.yaml
+cat <<EOF > "$config"
+server: $remote_addr:443,1443-30443
+
+auth: 9a833866-6b98-11ed-ae2f-00163e04ce37
+
+bandwidth:
+  up: 50 mbps
+  down: 100 mbps
+
+socks5:
+  listen: 0.0.0.0:$local_port
+EOF
+  "$hysteria" -c "$config"
+  ;;
+  *)
+  "$ss" $@
+  ;;
+esac

@@ -84,9 +84,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         // Prepare ss-local
         InstallSSLocal()
         InstallPrivoxy()
-        InstallSimpleObfs()
-        InstallKcptun()
-        InstallV2rayPlugin()
+//        InstallSimpleObfs()
+//        InstallKcptun()
+//        InstallV2rayPlugin()
         
         // Prepare defaults
         let defaults = UserDefaults.standard

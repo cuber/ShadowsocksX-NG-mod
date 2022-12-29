@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172E9C585547D3167C55BBA4 /* Pods_ShadowsocksX_NGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388120F062D7EB7DD0D8DDCA /* Pods_ShadowsocksX_NGTests.framework */; };
 		1C82DBA81FA96C7500B32551 /* obfs-local in Resources */ = {isa = PBXBuildFile; fileRef = 1C82DBA51FA96C7400B32551 /* obfs-local */; };
 		1C82DBAA1FA96FB600B32551 /* install_simple_obfs.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C82DBA91FA96F0300B32551 /* install_simple_obfs.sh */; };
 		9B07EFA71D048BBB0052D9DF /* ss-local in Resources */ = {isa = PBXBuildFile; fileRef = 9B07EFA61D048BBB0052D9DF /* ss-local */; };
@@ -88,6 +89,7 @@
 		C6D429991DA76FBC002A5711 /* privoxy.template.config in Resources */ = {isa = PBXBuildFile; fileRef = C6D429981DA76FBC002A5711 /* privoxy.template.config */; };
 		C8E42A6C1D4F270A0074C7EA /* UserRulesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E42A6A1D4F270A0074C7EA /* UserRulesController.swift */; };
 		C8E42A6E1D4F2CAF0074C7EA /* UserRulesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8E42A701D4F2CAF0074C7EA /* UserRulesController.xib */; };
+		E8B1974C29E57D5FA3CF4CC1 /* Pods_ShadowsocksX_NG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283ED1A8E9B711AC65670031 /* Pods_ShadowsocksX_NG.framework */; };
 		F0809FF1595BE2966343D3C7 /* libPods-proxy_conf_helper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7783AEDB4A3BDDC9FF16AC /* libPods-proxy_conf_helper.a */; };
 /* End PBXBuildFile section */
 
@@ -261,6 +263,7 @@
 			files = (
 				9B6BF9541E27B2570061B9A7 /* ServiceManagement.framework in Frameworks */,
 				9B3FFF3E1D08D9910019A709 /* SystemConfiguration.framework in Frameworks */,
+				E8B1974C29E57D5FA3CF4CC1 /* Pods_ShadowsocksX_NG.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172E9C585547D3167C55BBA4 /* Pods_ShadowsocksX_NGTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +565,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B5DD7B42683A354005EFEF7 /* Build configuration list for PBXNativeTarget "ShadowsocksX-NGTests" */;
 			buildPhases = (
+				16C7C0F2848FD85326702B59 /* [CP] Check Pods Manifest.lock */,
 				9B5DD7A92683A354005EFEF7 /* Sources */,
 				9B5DD7AA2683A354005EFEF7 /* Frameworks */,
 				9B5DD7AB2683A354005EFEF7 /* Resources */,
@@ -709,6 +714,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		16C7C0F2848FD85326702B59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShadowsocksX-NGTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3545247EFCD033C3FA63EA6C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1123,6 +1150,7 @@
 		};
 		9B5DD7B52683A354005EFEF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B6203C1228FCD3D365814AC /* Pods-ShadowsocksX-NGTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1152,6 +1180,7 @@
 		};
 		9B5DD7B62683A354005EFEF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AC7CD9886196A997D6FC78D /* Pods-ShadowsocksX-NGTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
