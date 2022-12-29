@@ -18,27 +18,27 @@ echo ngdir: ${NGDir}
 # 3.2.5 https://bintray.com/homebrew/bottles/shadowsocks-libev/
 mkdir -p "$TargetDir"
 cp -f ss-local "$TargetDir"
-rm -f "$LatestTargetDir"
-ln -s "$TargetDir" "$LatestTargetDir"
-
-cp -f libev.4.dylib "$TargetDir"
+#rm -f "$LatestTargetDir"
+#ln -s "$TargetDir" "$LatestTargetDir"
+#
+#cp -f libev.4.dylib "$TargetDir"
 
 # 2.8.0 https://bintray.com/homebrew/bottles/mbedtls
-cp -f libmbedcrypto.2.12.0.dylib "$TargetDir"
-ln -sfh  "$TargetDir/libmbedcrypto.2.12.0.dylib" "$TargetDir/libmbedcrypto.2.dylib"
-ln -sfh  "$TargetDir/libmbedcrypto.2.12.0.dylib" "$TargetDir/libmbedcrypto.3.dylib"
+#cp -f libmbedcrypto.2.12.0.dylib "$TargetDir"
+#ln -sfh  "$TargetDir/libmbedcrypto.2.12.0.dylib" "$TargetDir/libmbedcrypto.2.dylib"
+#ln -sfh  "$TargetDir/libmbedcrypto.2.12.0.dylib" "$TargetDir/libmbedcrypto.3.dylib"
 
 # 8.42 https://bintray.com/homebrew/bottles/pcre
-cp -f libpcre.1.dylib "$TargetDir"
+#cp -f libpcre.1.dylib "$TargetDir"
 
 # 1.0.18 https://bintray.com/homebrew/bottles/libsodium
-cp -f libsodium.23.dylib "$TargetDir"
-ln -sfh "$TargetDir/libsodium.23.dylib" "$TargetDir/libsodium.dylib"
+#cp -f libsodium.23.dylib "$TargetDir"
+#ln -sfh "$TargetDir/libsodium.23.dylib" "$TargetDir/libsodium.dylib"
 
 #cp -f libudns.0.dylib "$TargetDir"
 
 # 1.15.0 https://bintray.com/homebrew/bottles/c-ares
-cp -f libcares.2.dylib "$TargetDir"
-ln -sfh "$TargetDir/libcares.2.dylib" "$TargetDir/libcares.dylib"
+#cp -f libcares.2.dylib "$TargetDir"
+#ln -sfh "$TargetDir/libcares.2.dylib" "$TargetDir/libcares.dylib"
 
 echo done
