@@ -9,6 +9,7 @@
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
+rm -rf "$HOME/Library/Application Support/ShadowsocksX-NG/privoxy"
 mkdir -p "$HOME/Library/Application Support/ShadowsocksX-NG/privoxy"
 cp -f privoxy "$HOME/Library/Application Support/ShadowsocksX-NG/privoxy/"
 
