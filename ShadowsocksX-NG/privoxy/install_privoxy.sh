@@ -9,8 +9,10 @@
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-rm -rf "$HOME/Library/Application Support/ShadowsocksX-NG/privoxy"
-mkdir -p "$HOME/Library/Application Support/ShadowsocksX-NG/privoxy"
-cp -f privoxy "$HOME/Library/Application Support/ShadowsocksX-NG/privoxy/"
+AppData="$HOME/Library/Application Support/ShadowsocksX-NG"
+
+rm -rf "$AppData/privoxy"
+mkdir -p "$AppData/privoxy"
+cp -f privoxy "$AppData/privoxy/"
 
 echo done

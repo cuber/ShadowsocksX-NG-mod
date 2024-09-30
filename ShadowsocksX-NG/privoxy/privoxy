@@ -2,7 +2,7 @@
 
 set -e
 
-exec >> $HOME/Library/Logs/ss-local.log
+exec >> $HOME/Library/Logs/privoxy.log
 exec 2>&1
 
 if test -d "/opt/homebrew"; then
